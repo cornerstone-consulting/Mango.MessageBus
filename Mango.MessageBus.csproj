@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+    <PackageId>Mango.MessageBus</PackageId>
+
+    <Version>3.0.0</Version>
+
+    <Authors>Mahamadkasim Sache</Authors>
+
+    <Description>Shared Message Bus library for Mango Microservices.</Description>
+
+    <RepositoryUrl>https://github.com/MdKasimS-CCG/Mango.MessageBus.git</RepositoryUrl>
+
+    <Company>Cornerstone-Consulting</Company>
+
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <IsPackable>true</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="10.0.3" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="9.0.8" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="RabbitMQ.Client" Version="7.2.0" />
+  </ItemGroup>
+
+</Project>

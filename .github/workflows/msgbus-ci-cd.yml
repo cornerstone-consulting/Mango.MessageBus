@@ -1,0 +1,52 @@
+name: MessageBus CI/CD
+
+on:
+  push:
+    branches:
+      - main
+      - feature/hanna
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '10.0.x'
+
+      - name: Cache NuGet packages
+        uses: actions/cache@v4
+        with:
+          path: ~/.nuget/packages
+          key: ${{ runner.os }}-nuget-${{ hashFiles('**/*.csproj') }}
+          restore-keys: |
+            ${{ runner.os }}-nuget-
+
+      - name: Restore dependencies
+        run: dotnet restore Mango.MessageBus.csproj
+
+      - name: Build
+        run: dotnet build Mango.MessageBus.csproj --no-restore --configuration Release
+
+      - name: Pack NuGet package
+        run: dotnet pack Mango.MessageBus.csproj --no-build --configuration Release --output ./packages
+
+      - name: Publish package to GitHub Packages
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          dotnet nuget push "./packages/*.nupkg" \
+            --source "https://nuget.pkg.github.com/MdKasimS-CCG/index.json" \
+            --api-key "${{ secrets.GITHUB_TOKEN }}" \
+            --skip-duplicate
