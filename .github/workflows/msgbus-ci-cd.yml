@@ -5,6 +5,7 @@ on:
     branches:
       - main
       - feature/hanna
+      - feature/update-package-publishing-owner
   pull_request:
     branches:
       - main
