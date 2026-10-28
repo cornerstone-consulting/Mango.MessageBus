@@ -47,6 +47,6 @@ jobs:
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         run: |
           dotnet nuget push "./packages/*.nupkg" \
-            --source "https://nuget.pkg.github.com/MdKasimS-CCG/index.json" \
+            --source "https://nuget.pkg.github.com/cornerstone-consulting/index.json" \
             --api-key "${{ secrets.GITHUB_TOKEN }}" \
             --skip-duplicate
