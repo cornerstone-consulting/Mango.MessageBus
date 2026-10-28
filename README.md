@@ -73,7 +73,7 @@ Configure GitHub Packages as a NuGet package source in a `NuGet.Config` file use
 <configuration>
   <packageSources>
     <add key="github"
-         value="https://nuget.pkg.github.com/MdKasimS-CCG/index.json" />
+         value="https://nuget.pkg.github.com/cornerstone-consulting/index.json" />
   </packageSources>
 </configuration>
 ```
