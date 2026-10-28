@@ -13,7 +13,7 @@
 
     <Description>Shared Message Bus library for Mango Microservices.</Description>
 
-    <RepositoryUrl>https://github.com/MdKasimS-CCG/Mango.MessageBus.git</RepositoryUrl>
+    <RepositoryUrl>https://github.com/cornerstone-consulting/Mango.MessageBus</RepositoryUrl>
 
     <Company>Cornerstone-Consulting</Company>
 
