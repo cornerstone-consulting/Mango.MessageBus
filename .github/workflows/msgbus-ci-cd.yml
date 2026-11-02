@@ -6,6 +6,7 @@ on:
       - main
       - feature/hanna
       - feature/update-package-publishing-owner
+      - feature/kafka-provider-abstraction
   pull_request:
     branches:
       - main

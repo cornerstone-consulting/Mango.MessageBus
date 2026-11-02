@@ -7,11 +7,11 @@ namespace Mango.MessageBus
     public class AzureServiceBusMessageProducer : IMessageProducer
     {
         // Note: Its equivalent to Publish message in Azure service bus.
-        public Task SendMessage(
+        public Task PublishAsync(
             object message,
-            string queueName,
+            MessageDestination destination,
             string messageId,
-            RabbitMqQueueOptions? queueOptions = null)
+            CancellationToken cancellationToken = default)
         {
             throw new NotSupportedException(
                 "Azure Service Bus publishing is not implemented.");

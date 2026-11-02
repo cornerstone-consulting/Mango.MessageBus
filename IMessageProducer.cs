@@ -1,10 +1,10 @@
-﻿namespace Mango.MessageBus;
+namespace Mango.MessageBus;
 
 public interface IMessageProducer
 {
-    Task SendMessage(
+    Task PublishAsync(
         object message,
-        string queueName,
+        MessageDestination destination,
         string messageId,
-        RabbitMqQueueOptions? queueOptions = null);
+        CancellationToken cancellationToken = default);
 }

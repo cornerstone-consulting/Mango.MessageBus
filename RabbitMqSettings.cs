@@ -11,5 +11,9 @@ public sealed class RabbitMqSettings
     public string Password { get; set; } = string.Empty;
 
     public string VirtualHost { get; set; } = "/";
+
+    /// <summary>Maps logical destination names to one or more RabbitMQ queues.</summary>
+    public IDictionary<string, RabbitMqDestinationSettings> Destinations { get; set; } =
+        new Dictionary<string, RabbitMqDestinationSettings>(StringComparer.OrdinalIgnoreCase);
 }
 
